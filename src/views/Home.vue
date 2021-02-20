@@ -76,13 +76,13 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 /* ## MAIN COMPONENTS ## */
 /* -- PARENT CONTENT -- */
 .main-content {
     display: grid;
     grid-template-columns: 30% auto;
-    grid-template-rows: 100% auto;
+    grid-template-rows: auto 1.5rem;
     background-color: #888;
     // height: 100%;
     padding: 0 .4rem;
@@ -167,6 +167,7 @@ export default {
 .cardfront-item {
     color: orange;
     align-self: flex-end;
+    margin-left: -30px;
 }
 .cardfront-text {
     color: brown;
