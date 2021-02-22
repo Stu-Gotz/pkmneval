@@ -1,17 +1,17 @@
 <template>
   <!-- <home></home> -->
   <!-- <div class="main-content"> -->
-    <div class="textarea-div">
-      <form>
+    <form class="textarea-div">
         <div class="buttons">
           <a href="#" role="button" class="btn btn-submit">Submit</a>
           <a href="#" role="button" class="btn btn-clear">Clear</a>
         </div>
-        <textarea class="pastearea"></textarea>
-      </form>
+        <div class="textcontainer">
+          <textarea class="pastearea"></textarea>
+        </div>
       <!-- <div contenteditable="contenteditable" class=
       "pastearea"></div> -->
-    </div>
+    </form>
     <div class="inner-content">
       <div class="main-top">
         <ul class="team-holder">
@@ -100,6 +100,9 @@ export default {
   a {
       text-decoration: none;
   }
+  form {
+    height: 100%;
+  }
   #app {
     display: grid;
     grid-template-columns: 30% auto;
@@ -122,7 +125,11 @@ export default {
       flex-direction: column;
       margin-left: 1rem;
   }
-
+  .textarea-div {
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+  }
   .footer {
     position: fixed;
     left: 0;
@@ -131,23 +138,17 @@ export default {
   }
   /* -- PASTE INPUT AREA -- */
 
-  .pastearea {
-      display: flex;
-      flex-direction: column;
-      background-color: chocolate;
-  }
-
   .buttons {
       display: flex;
       justify-content: space-evenly;
       margin-top: .4rem;
   }
   /* Hopefully this will give dynamic sizing */
-  .textarea-label {
-      display: block;
-  }
 
-  .textarea-div textarea{
+  .textcontainer {
+    flex: 1 0;
+  }
+  .pastearea{
     border: 1px solid black;
     margin: 0;
     margin-top: .4rem;
@@ -155,7 +156,7 @@ export default {
     padding: 0;
     width: 100%;
     resize: none;
-    // height: 100%;
+    height: 100%;
     box-sizing: border-box;
     background-color: #bbb;
   }

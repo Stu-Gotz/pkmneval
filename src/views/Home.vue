@@ -5,7 +5,8 @@
         <a href="#" role="button" class="btn btn-submit">Submit</a>
         <a href="#" role="button" class="btn btn-clear">Clear</a>
       </div>
-      <p contenteditable="contenteditable" class="pastearea"></p>
+      <textarea name="text" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'></textarea>
+      <!-- <p contenteditable="contenteditable" class="pastearea"></p> -->
     </div>
       <!-- <textarea class="pastearea"></textarea> -->
 
