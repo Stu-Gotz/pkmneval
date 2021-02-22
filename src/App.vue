@@ -1,7 +1,7 @@
 <template>
   <!-- <home></home> -->
   <!-- <div class="main-content"> -->
-    <form class="textarea-div">
+    <!-- <form class="textarea-div">
         <div class="buttons">
           <a href="#" role="button" class="btn btn-submit">Submit</a>
           <a href="#" role="button" class="btn btn-clear">Clear</a>
@@ -9,9 +9,8 @@
         <div class="textcontainer">
           <textarea class="pastearea"></textarea>
         </div>
-      <!-- <div contenteditable="contenteditable" class=
-      "pastearea"></div> -->
-    </form>
+    </form> -->
+    <text-paste></text-paste>
     <div class="inner-content">
       <div class="main-top">
         <ul class="team-holder">
@@ -65,10 +64,10 @@
 </template>
 
 <script>
-// import Home from './views/Home.vue'
+import TextPaste from './components/TextPaste.vue'
 export default {
   components: {
-    // Home
+    TextPaste
   }
 }
 </script>
@@ -111,24 +110,28 @@ export default {
     padding: 0 .4rem;
     height: 100%;
   }
-  .main-content {
-    display: grid;
-    grid-template-columns: 30% auto;
-    background-color: #888;
-    // height: 100%;
-    padding: 0 .4rem;
-}
-
+    /* -- GLOBAL BUTTON STYLING -- */
+  button {
+    padding: 1rem;
+    font-size: 1rem;
+    background-color: blanchedalmond;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+  }
+//   .main-content {
+// was removed. will completely delete later if I don't need for mobile sizing
+//     display: grid;
+//     grid-template-columns: 30% auto;
+//     background-color: #888;
+//     // height: 100%;
+//     padding: 0 .4rem;
+// }
   /* -- CHILD CONTENT -- */
   .inner-content {
       display: flex;
       flex-direction: column;
       margin-left: 1rem;
-  }
-  .textarea-div {
-    display: flex;
-    flex-flow: column;
-    height: 100%;
   }
   .footer {
     position: fixed;
@@ -136,31 +139,6 @@ export default {
     bottom: 0;
     width: 100%;
   }
-  /* -- PASTE INPUT AREA -- */
-
-  .buttons {
-      display: flex;
-      justify-content: space-evenly;
-      margin-top: .4rem;
-  }
-  /* Hopefully this will give dynamic sizing */
-
-  .textcontainer {
-    flex: 1 0;
-  }
-  .pastearea{
-    border: 1px solid black;
-    margin: 0;
-    margin-top: .4rem;
-    outline: 0 none;
-    padding: 0;
-    width: 100%;
-    resize: none;
-    height: 100%;
-    box-sizing: border-box;
-    background-color: #bbb;
-  }
-
   /* -- CARD DISPLAY SECTION -- */
   .main-top {
       height: 50%;
@@ -206,14 +184,5 @@ export default {
   }
   .cardfront-text {
       color: brown;
-  }
-
-  /* -- BUTTON STYLING -- */
-
-  .btn {
-      padding: 1rem;
-      font-size: 1rem;
-      background-color: blanchedalmond;
-      border-radius: 30px;
   }
 </style>
