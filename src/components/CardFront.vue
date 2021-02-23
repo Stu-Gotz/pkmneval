@@ -16,6 +16,10 @@
 
 <script>
 export default {
+  name: 'CardFront',
+  computed: {
+    
+  }
 }
 </script>
 
