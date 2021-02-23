@@ -38,6 +38,7 @@ export default {
       const paste = Koffing.parse(this.textInput)
       this.team = paste.teams[0].pokemon
       this.$store.dispatch('updateTeam', this.team)
+      console.log(this.$store.state.team)
       return this.team
     },
     resetForm: function () {
@@ -79,5 +80,4 @@ export default {
     box-sizing: border-box;
     background-color:#7D6B9B; //change later
   }
-
 </style>

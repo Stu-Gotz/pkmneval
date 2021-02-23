@@ -21,7 +21,7 @@
           </div>
         </div>
         <div class="cardfront-text">
-          {{ team.name }}
+          {{ mon.name }}
         </div>
       </div>
     </li>
@@ -46,9 +46,9 @@
 // import Card from './Card.vue'
 export default {
   name: 'Cards',
+  props: ['team'],
   data () {
     return {
-      team: this.$store.state.team
     }
   }
 }

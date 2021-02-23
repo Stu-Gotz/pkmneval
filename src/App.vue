@@ -1,9 +1,9 @@
 <template>
     <text-paste></text-paste>
-     <div class="inner-content">
-       <inner-top>
-       </inner-top>
-       <inner-bottom></inner-bottom>
+    <div class="inner-content">
+      <inner-top>
+      </inner-top>
+      <inner-bottom></inner-bottom>
     </div>
     <div class="footer">Thanks to APIs, link to my git, copyright hover</div>
 </template>

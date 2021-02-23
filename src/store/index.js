@@ -2,15 +2,14 @@ import { createStore } from 'vuex'
 
 export default createStore({
   state: {
-    team: {
-    }
+    team: []
   },
   mutations: {
     updateTeam (state, newTeam) {
       state.team = newTeam
     },
     clearTeam (state) {
-      state.team = {}
+      state.team = []
     }
   },
   actions: {
