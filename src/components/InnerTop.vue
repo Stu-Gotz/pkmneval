@@ -8,13 +8,13 @@
       >
           <div class="cardfront-images">
             <div class="cardfront-icon">
-              <img
-                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png"
-                alt="ditto"
+              <img class="pokemon"
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png"
+                alt="pikachu"
               />
             </div>
             <div class="cardfront-item">
-              <img
+              <img class="item"
                 src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/ability-urge.png"
                 alt="metalpowder"
               />
@@ -90,10 +90,14 @@ export default {
     color: green;
     display: flex;
     justify-content: center;
-    -webkit-mask-image: url(../assets/bug.svg);
-    mask-image: url(../assets/bug.svg);
-    mask-size: cover;
-    background-color: green;
+    // -webkit-mask-image: url(../assets/dark.svg);
+    // mask-image: url(../assets/dark.svg);
+    // mask-size: contain;
+    background: url(../assets/dark.svg), linear-gradient(to left, #2193b0,#6dd5ed);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    // clip-path: url(../assets/dark.svg#dark)
   }
   .cardfront-item {
     color: orange;
@@ -106,5 +110,8 @@ export default {
   .cardfront-evs {
     display: inline-block;
     margin-left: 4px;
+  }
+  .pokemon {
+
   }
 </style>
