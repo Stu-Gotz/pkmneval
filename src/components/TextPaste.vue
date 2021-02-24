@@ -30,32 +30,32 @@ export default {
   data () {
     return {
       textInput: '',
-      team: ''
+      team: '',
+      dex: []
     }
   },
   methods: {
-    pokedex: function (pokemon) {
-      const data = async (response) => {
-        try {
-          response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`)
-          return await response.json()
-        } catch (error) {
-          console.log(error)
-        }
+    pokedex: async function (pokemon, teamObj) {
+      try {
+        const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`)
+        const results = await response.json()
+        this.dex.push(results)
+        this.$store.dispatch('createDex', this.dex)
+        teamObj.types = results.types
+        teamObj.id = results.id
+        this.$store.dispatch('updateTeam', this.team)
+        return this.dex
+      } catch (error) {
+        console.log(error)
       }
-      console.log(data)
-      return data
     },
     submitForm: function () {
       const paste = Koffing.parse(this.textInput)
       this.team = paste.teams[0].pokemon
-      this.$store.dispatch('updateTeam', this.team)
-      console.log(this.$store.state.team)
 
       for (let i = 0; i < this.team.length; i++) {
         const pokemon = this.team[i].name.toLowerCase()
-        this.pokedex(pokemon)
-        console.log(pokemon)
+        this.pokedex(pokemon, this.team[i])
       }
       return this.team
     },
@@ -79,7 +79,6 @@ export default {
       display: flex;
       justify-content: space-evenly;
       margin-top: .4rem;
-      background-color: #7D6B9B;
   }
   /* -- CONTAINER FOR TEXTAREA */
   .textarea-container {
@@ -87,8 +86,7 @@ export default {
   }
   /* -- TEXTAREA --*/
   .pastearea {
-    border: 1px solid black; //remove later
-    margin: 0;
+    margin: 0 5px;
     margin-top: .4rem;
     outline: 0 none;
     padding: 0;
@@ -96,6 +94,22 @@ export default {
     resize: none;
     height: 100%;
     box-sizing: border-box;
-    background-color:#7D6B9B; //change later
+    background-color:#a79bbc;
+    border: none;
+    border-radius: 2px;
+
+    &::-webkit-scrollbar {
+      width: 12px;
+      background: #5c4780;
+      border-radius: 2px;
+      &-button {
+          background: #432e68;
+      }
+      &-thumb {
+        background: #7d6b9b;
+        border: 1px solid #192650;
+        cursor: pointer;
+      }
+    }
   }
 </style>

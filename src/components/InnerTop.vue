@@ -26,6 +26,8 @@
             <br>
             <strong>Nature:</strong> {{ mon.nature }}
             <br>
+            <strong>Ability:</strong> {{ mon.ability }}
+            <br>
             <li
             class="cardfront-evs"
             v-for="(ev, index) in mon.evs"
@@ -84,12 +86,14 @@ export default {
     border: 3px solid rgb(163, 163, 0);
     border-radius: 5px;
     background: #ddd;
-    box-shadow: 3px 3px rgba(0,0,0,.2);
+    box-shadow: 3px 3px 2px rgba(0,0,0,.4);
     margin: 3px;
 
     z-index: 999;
     &:hover {
-      transform: scale(1.05)
+      transform: scale(1.05);
+      box-shadow: 5px 8px 8px rgba(0,0,0,.3);
+      z-index: 10;
     }
   }
   .cardfront-images {

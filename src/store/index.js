@@ -2,7 +2,8 @@ import { createStore } from 'vuex'
 
 export default createStore({
   state: {
-    team: []
+    team: [],
+    dex: []
   },
   mutations: {
     updateTeam (state, newTeam) {
@@ -10,6 +11,10 @@ export default createStore({
     },
     clearTeam (state) {
       state.team = []
+      state.dex = []
+    },
+    createDex (state, newDex) {
+      state.dex = newDex
     }
   },
   actions: {
@@ -18,6 +23,9 @@ export default createStore({
     },
     clearTeam ({ commit }) {
       commit('clearTeam')
+    },
+    createDex ({ commit }, newDex) {
+      commit('createDex', newDex)
     }
   },
   modules: {

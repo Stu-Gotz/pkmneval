@@ -58,7 +58,7 @@ export default {
     grid-template-rows: 1fr auto ;
     column-gap: 20px;
     row-gap: 3px;
-    background-color: #A79BBC;
+    background-color: #6b769a;
     // padding: 0 .4rem;
     height: 100%;
     padding: 5px;
@@ -66,18 +66,17 @@ export default {
     /* -- GLOBAL BUTTON STYLING -- */
   button {
     padding: 1rem;
-    font-size: 1rem;
-    background-color: #432E68;
-    color: #976495;
+    font-size: 1.4rem;
+    background-color: #432e68;
+    color: #a79bbc;
     border-radius: 30px;
     border: none;
     cursor: pointer;
-    box-shadow: 3px 2px 2px rgba(0,0,0,.5);
+    box-shadow: 3px 3px 3px rgba(92, 71, 128, .3);
 
     &:hover {
-      scale: 1.1;
-      box-shadow: 5px 3px 3px rgba(0,0,0,.5);
-      color: black;
+      box-shadow: 5px 5px 5px rgba(92,71,128,.7);
+      color: #976495;
     }
   }
 //   .main-content {
@@ -93,7 +92,6 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    background-color: #A79BBC
   }
   /* -- FOOTER, OBVIOUSLY -- */
   .footer {
@@ -105,7 +103,6 @@ export default {
     font-size: 1.2rem;
     padding: 2px;
     margin: 1px;
-    background-color: #A79BBC
   }
 
 </style>
