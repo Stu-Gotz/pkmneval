@@ -34,11 +34,29 @@ export default {
     }
   },
   methods: {
+    pokedex: function (pokemon) {
+      const data = async (response) => {
+        try {
+          response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`)
+          return await response.json()
+        } catch (error) {
+          console.log(error)
+        }
+      }
+      console.log(data)
+      return data
+    },
     submitForm: function () {
       const paste = Koffing.parse(this.textInput)
       this.team = paste.teams[0].pokemon
       this.$store.dispatch('updateTeam', this.team)
       console.log(this.$store.state.team)
+
+      for (let i = 0; i < this.team.length; i++) {
+        const pokemon = this.team[i].name.toLowerCase()
+        this.pokedex(pokemon)
+        console.log(pokemon)
+      }
       return this.team
     },
     resetForm: function () {

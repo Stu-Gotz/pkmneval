@@ -6,7 +6,7 @@
         v-for="(mon, index) in team"
         :key="index"
       >
-          <div class="cardfront-images">
+          <div class="cardfront-images"> <!-- logic for if pokmeon has 2 types or 1 for bg, set by type -->
             <div class="cardfront-icon">
               <img class="pokemon"
                 src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png"
@@ -21,16 +21,17 @@
             </div>
           </div>
           <ul class="cardfront-text">
+            <p v-show="mon.level">Level: {{ mon.level }}</p>
             {{ mon.name }} @ {{ mon.item }}
             <br>
-            Nature: {{ mon.nature }}
+            <strong>Nature:</strong> {{ mon.nature }}
             <br>
             <li
             class="cardfront-evs"
             v-for="(ev, index) in mon.evs"
             :key="index"
             >
-              {{ index }}: {{ ev }}
+              <strong>{{ index }}</strong>: {{ ev }}
             </li>
           </ul>
           <ul class="cardfront-moves">
@@ -61,7 +62,6 @@ export default {
   /* -- CARD DISPLAY SECTION -- */
   .inner-top {
       height: 48%;
-      background-color: #7D6B9B;
   }
   /* -- TEAM CONTAINER -- */
   .team-holder {
@@ -83,35 +83,38 @@ export default {
 
     border: 3px solid rgb(163, 163, 0);
     border-radius: 5px;
-
+    background: #ddd;
+    box-shadow: 3px 3px rgba(0,0,0,.2);
     margin: 3px;
+
+    z-index: 999;
+    &:hover {
+      transform: scale(1.05)
+    }
   }
   .cardfront-images {
-    color: green;
     display: flex;
     justify-content: center;
-    // -webkit-mask-image: url(../assets/dark.svg);
-    // mask-image: url(../assets/dark.svg);
-    // mask-size: contain;
-    background: url(../assets/dark.svg), linear-gradient(to left, #2193b0,#6dd5ed);
+
+    background: url(../assets/water.svg), url(../assets/steel.svg);
     background-size: contain;
     background-repeat: no-repeat;
-    background-position: center;
-    // clip-path: url(../assets/dark.svg#dark)
+    background-position: left, right;
+    //if one type use background-position: center;
   }
   .cardfront-item {
-    color: orange;
     align-self: flex-end;
     margin-left: -30px;
+    margin-bottom: 10px;
   }
   .cardfront-text {
-    color: brown;
+    color: #444;
   }
   .cardfront-evs {
     display: inline-block;
     margin-left: 4px;
   }
-  .pokemon {
-
+  .cardfront-moves {
+    color: #444;
   }
 </style>
