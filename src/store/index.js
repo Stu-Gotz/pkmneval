@@ -28,6 +28,11 @@ export default createStore({
       commit('createDex', newDex)
     }
   },
+  getters: {
+    hasTeam: state => {
+      return state.team
+    }
+  },
   modules: {
   }
 })

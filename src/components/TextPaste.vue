@@ -39,10 +39,16 @@ export default {
       try {
         const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`)
         const results = await response.json()
-        this.dex.push(results)
+        this.dex = results
         this.$store.dispatch('createDex', this.dex)
-        teamObj.types = results.types
+        for (var i = 0; i < results.types.length; i++) {
+          console.log(results.types[i].type.name)
+          teamObj.type = []
+          teamObj.type.push(results.types[i].type.name)
+        }
         teamObj.id = results.id
+        teamObj.sprite = results.sprites.front_default
+        console.log(teamObj)
         this.$store.dispatch('updateTeam', this.team)
         return this.dex
       } catch (error) {
@@ -52,7 +58,6 @@ export default {
     submitForm: function () {
       const paste = Koffing.parse(this.textInput)
       this.team = paste.teams[0].pokemon
-
       for (let i = 0; i < this.team.length; i++) {
         const pokemon = this.team[i].name.toLowerCase()
         this.pokedex(pokemon, this.team[i])

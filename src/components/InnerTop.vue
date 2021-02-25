@@ -6,11 +6,13 @@
         v-for="(mon, index) in team"
         :key="index"
       >
-          <div class="cardfront-images"> <!-- logic for if pokmeon has 2 types or 1 for bg, set by type -->
+          <div class="cardfront-images"
+          :style="typeStyle(mon.type)"
+          >
             <div class="cardfront-icon">
               <img class="pokemon"
-                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png"
-                alt="pikachu"
+                :src=mon.sprite
+                :alt="mon.name"
               />
             </div>
             <div class="cardfront-item">
@@ -50,11 +52,47 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
   name: 'InnerTop',
   computed: {
-    team: function () {
-      return this.$store.state.team
+    // typeStyling: function (types) {
+    //   const backgroundImageUrls = types.map(entry => `url(../assets/${types.type.name.toString()}.svg`)
+    //   console.log(backgroundImageUrls)
+    //   let backgroundPosition = 'center'
+
+    //   if (backgroundImageUrls.length > 1) {
+    //     backgroundPosition = 'left right'
+    //   }
+
+    //   return {
+    //     backgroundImage: backgroundImageUrls.join(','),
+    //     backgroundPosition
+    //   }
+    // },
+    ...mapGetters({
+      team: 'hasTeam'
+    })
+  },
+  methods: {
+    typeStyle: function (types) {
+      const backgroundImageUrls = []
+      for (const i in types) {
+        backgroundImageUrls.push('url(../assets/' + types[i] + '.svg)')
+      }
+      // const backgroundImageUrls = types.map((entry, i) => 'url(../assets/' + `${entry.types[i]}` + '.svg)')
+      let backgroundPosition = 'center'
+
+      if (backgroundImageUrls.length > 1) {
+        backgroundPosition = 'left right'
+      }
+      const k = backgroundImageUrls.join(',')
+      console.log(k)
+      return {
+        backgroundImage: backgroundImageUrls.join(','),
+        backgroundPosition
+      }
     }
   }
 }
@@ -90,7 +128,7 @@ export default {
     margin: 3px;
 
     z-index: 999;
-    &:hover {
+    &:hover{
       transform: scale(1.05);
       box-shadow: 5px 8px 8px rgba(0,0,0,.3);
       z-index: 10;
@@ -103,7 +141,7 @@ export default {
     background: url(../assets/water.svg), url(../assets/steel.svg);
     background-size: contain;
     background-repeat: no-repeat;
-    background-position: left, right;
+    //background-position: left, right;
     //if one type use background-position: center;
   }
   .cardfront-item {
