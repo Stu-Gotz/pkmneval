@@ -77,20 +77,24 @@ export default {
   },
   methods: {
     typeStyle: function (types) {
+      console.log(types)
       const backgroundImageUrls = []
       for (const i in types) {
-        backgroundImageUrls.push('url(../assets/' + types[i] + '.svg)')
+        backgroundImageUrls.push('url(https://raw.githubusercontent.com/Stu-Gotz/pkmneval/main/src/assets/' + types[i] + '.svg)')
       }
       // const backgroundImageUrls = types.map((entry, i) => 'url(../assets/' + `${entry.types[i]}` + '.svg)')
-      let backgroundPosition = 'center'
+      var backgroundPosition = ''
 
-      if (backgroundImageUrls.length > 1) {
-        backgroundPosition = 'left right'
+      if (backgroundImageUrls.length !== 1) {
+        console.log(backgroundImageUrls.length)
+        backgroundPosition = 'left, right'
+      } else if (backgroundImageUrls.length === 1) {
+        console.log(backgroundImageUrls.length)
+        backgroundPosition = 'center'
       }
-      const k = backgroundImageUrls.join(',')
-      console.log(k)
+      console.log(backgroundImageUrls)
       return {
-        backgroundImage: backgroundImageUrls.join(','),
+        backgroundImage: backgroundImageUrls.join(', '),
         backgroundPosition
       }
     }
@@ -137,8 +141,8 @@ export default {
   .cardfront-images {
     display: flex;
     justify-content: center;
-
-    background: url(../assets/water.svg), url(../assets/steel.svg);
+    margin: 4px;
+    // background: url(../assets/dark.svg), url(../assets/steel.svg);
     background-size: contain;
     background-repeat: no-repeat;
     //background-position: left, right;

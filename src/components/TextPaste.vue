@@ -40,15 +40,18 @@ export default {
         const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`)
         const results = await response.json()
         this.dex = results
+        // create a store.state.dex, future planned use
         this.$store.dispatch('createDex', this.dex)
+
+        // Store the data for the types
+        teamObj.type = []
         for (var i = 0; i < results.types.length; i++) {
-          console.log(results.types[i].type.name)
-          teamObj.type = []
           teamObj.type.push(results.types[i].type.name)
         }
         teamObj.id = results.id
         teamObj.sprite = results.sprites.front_default
-        console.log(teamObj)
+
+        // create the global store.state object
         this.$store.dispatch('updateTeam', this.team)
         return this.dex
       } catch (error) {
