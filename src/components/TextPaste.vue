@@ -37,20 +37,29 @@ export default {
   methods: {
     pokedex: async function (pokemon, teamObj) {
       try {
-        const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`)
-        const results = await response.json()
+        const pokemonQuery = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`)
+        const results = await pokemonQuery.json()
         this.dex = results
         // create a store.state.dex, future planned use
         this.$store.dispatch('createDex', this.dex)
 
         // Store the data for the types
         teamObj.type = []
-        for (var i = 0; i < results.types.length; i++) {
-          teamObj.type.push(results.types[i].type.name)
+        for (var t = 0; t < results.types.length; t++) {
+          teamObj.type.push(results.types[t].type.name)
         }
         teamObj.id = results.id
         teamObj.sprite = results.sprites.front_default
-
+        // Get the type for the moves
+        for (var m in teamObj.moves) {
+          const moveQuery = await fetch(`https://pokeapi.co/api/v2/move/${teamObj.moves[m].toLowerCase().replace(' ', '-')}/`)
+          const results = await moveQuery.json()
+          teamObj.moves[m] = {
+            name: teamObj.moves[m],
+            type: results.type.name
+          }
+        }
+        console.log(teamObj)
         // create the global store.state object
         this.$store.dispatch('updateTeam', this.team)
         return this.dex
@@ -105,6 +114,7 @@ export default {
     background-color:#a79bbc;
     border: none;
     border-radius: 2px;
+    box-shadow: 2px 2px 3px rgba(0,0,0,.3);
 
     &::-webkit-scrollbar {
       width: 12px;

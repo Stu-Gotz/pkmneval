@@ -64,7 +64,7 @@ export default {
     padding: 5px;
   }
     /* -- GLOBAL BUTTON STYLING -- */
-  button {
+  .btn {
     padding: 1rem;
     font-size: 1.4rem;
     background-color: #432e68;
@@ -72,10 +72,11 @@ export default {
     border-radius: 30px;
     border: none;
     cursor: pointer;
-    box-shadow: 3px 3px 3px rgba(92, 71, 128, .3);
+    // box-shadow: 3px 3px 3px rgba(92, 71, 128, .3);
+    box-shadow: 2px 2px 3px rgba(0,0,0,.3);
 
     &:hover {
-      box-shadow: 5px 5px 5px rgba(92,71,128,.7);
+      box-shadow: 0px 0px 10px 5px rgba(136, 114, 173);
       color: #976495;
     }
   }
