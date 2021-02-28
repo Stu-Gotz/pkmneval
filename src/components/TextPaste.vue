@@ -56,7 +56,8 @@ export default {
           const results = await moveQuery.json()
           teamObj.moves[m] = {
             name: teamObj.moves[m],
-            type: results.type.name
+            type: results.type.name,
+            priority: results.priority
           }
         }
         console.log(teamObj)

@@ -35,7 +35,7 @@
             v-for="(ev, index) in mon.evs"
             :key="index"
             >
-              <strong>{{ index }}</strong>: {{ ev }}
+              <strong>{{ index.toUpperCase() }}</strong>: {{ ev }}
             </li>
           </ul>
           <ul class="cardfront-moves">
@@ -100,7 +100,7 @@ export default {
   .card {
     flex-basis: calc(100% / 6);
     text-align: center;
-
+    font-size: 1.4rem;
     display: flex;
     flex-direction: column;
     align-content: stretch;

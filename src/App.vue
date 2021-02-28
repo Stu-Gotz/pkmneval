@@ -5,7 +5,13 @@
       </inner-top>
       <inner-bottom></inner-bottom>
     </div>
-    <div class="footer">Thanks to APIs, link to my git, copyright hover</div>
+    <div class="footer">
+      Credits:
+      <a class="footer-link" href="https://github.com/duiker101/pokemon-type-svg-icons" alt="icons">Type Image Credits</a>
+      <a class="footer-link" href="https://github.com/Stu-Gotz/pkmneval" alt="github">GitHub Repo</a>
+      <a class="footer-link" href="https://pokeapi.co/" alt="pokeapi">PokeAPI</a>
+      <a class="footer-link" href="https://github.com/itsjavi/koffing">Team Parser</a>
+    </div>
 </template>
 
 <script>
@@ -26,9 +32,9 @@ export default {
   *,
   *::before,
   *::after {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
   }
   html {
     height: 100%;
@@ -44,10 +50,15 @@ export default {
   }
   /* this should have been the default setting... */
   ul {
-      list-style: none;
+    list-style: none;
   }
   a {
-      text-decoration: none;
+    text-decoration: none;
+    color: #192650;
+
+    &:visited {
+      color: #4f124c;
+    }
   }
   form {
     height: 100%;
@@ -100,10 +111,11 @@ export default {
     // left: 0;
     // bottom: 0;
     // text-align: right;
-    color: sandybrown;
     font-size: 1.2rem;
     padding: 2px;
     margin: 1px;
   }
-
+  .footer-link {
+    margin-right: 5px;
+  }
 </style>
