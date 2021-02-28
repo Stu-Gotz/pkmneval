@@ -9,3 +9,7 @@ So I probably won't host this anywhere, because I'm not sure of the legal bits r
 ## Future
 
 If I ever get around to doing some analysis based on Smogon usage stats, and D3js to do some neat analysis in the bottom pane, but that's some ways away. So for now it will just be pretty. Thanks for checking it out. Have a nice day.
+
+## Legal mumbo jumbo
+
+I don't own any of the images, and all of them are property of Nintendo. This project was used for educational purposes, and all parts of it are available under fair use and anyone can use any part or whole of it in any way they see fit. All I ask for is a shout out or credit.
