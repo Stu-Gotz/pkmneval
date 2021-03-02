@@ -70,7 +70,6 @@ export default {
     column-gap: 20px;
     row-gap: 3px;
     background-color: #6b769a;
-    // padding: 0 .4rem;
     height: 100%;
     padding: 5px;
   }
@@ -91,14 +90,6 @@ export default {
       color: #976495;
     }
   }
-//   .main-content {
-// was removed. will completely delete later if I don't need for mobile sizing
-//     display: grid;
-//     grid-template-columns: 30% auto;
-//     background-color: #888;
-//     // height: 100%;
-//     padding: 0 .4rem;
-// }
   /* -- CHILD COMPONENT CONTAINER -- */
   .inner-content {
     display: flex;
@@ -107,10 +98,6 @@ export default {
   }
   /* -- FOOTER, OBVIOUSLY -- */
   .footer {
-    // position: fixed;
-    // left: 0;
-    // bottom: 0;
-    // text-align: right;
     font-size: 1.2rem;
     padding: 2px;
     margin: 1px;

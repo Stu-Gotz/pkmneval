@@ -124,11 +124,8 @@ export default {
     display: flex;
     justify-content: center;
     margin: 4px;
-    // background: url(../assets/dark.svg), url(../assets/steel.svg);
     background-size: contain;
     background-repeat: no-repeat;
-    //background-position: left, right;
-    //if one type use background-position: center;
   }
   .cardfront-item {
     align-self: flex-end;
