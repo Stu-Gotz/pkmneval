@@ -7,10 +7,10 @@
     </div>
     <div class="footer">
       Credits:
-      <a class="footer-link" href="https://github.com/duiker101/pokemon-type-svg-icons" alt="icons">Type Image Credits</a>
-      <a class="footer-link" href="https://github.com/Stu-Gotz/pkmneval" alt="github">GitHub Repo</a>
-      <a class="footer-link" href="https://pokeapi.co/" alt="pokeapi">PokeAPI</a>
-      <a class="footer-link" href="https://github.com/itsjavi/koffing">Team Parser</a>
+      <a class="footer-link" href="https://github.com/duiker101/pokemon-type-svg-icons" alt="icons">Type Image Credits</a> |
+      <a class="footer-link" href="https://github.com/Stu-Gotz/pkmneval" alt="github">GitHub Repo</a> |
+      <a class="footer-link" href="https://pokeapi.co/" alt="pokeapi">PokeAPI</a> |
+      <a class="footer-link" href="https://github.com/itsjavi/koffing">Team Parser</a> |
     </div>
 </template>
 
@@ -18,6 +18,7 @@
 import TextPaste from './components/TextPaste.vue'
 import InnerTop from './components/InnerTop.vue'
 import InnerBottom from './components/InnerBottom.vue'
+
 export default {
   components: {
     TextPaste,

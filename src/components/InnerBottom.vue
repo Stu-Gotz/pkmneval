@@ -1,14 +1,22 @@
 <template>
   <div class="inner-btm">
     <div class="display">
-      some words and stuff for placeholder
+      Paste a team to the side and hit submit!
     </div>
+    <!-- <div class="display-active"> -->
+    <!-- </div> -->
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 export default {
-  name: 'InnerBottom'
+  name: 'InnerBottom',
+  computed: {
+    ...mapGetters({
+      team: 'hasTeam'
+    })
+  }
 }
 </script>
 
@@ -21,5 +29,12 @@ export default {
       height: 50%;
       background-color: darkturquoise;
       opacity: .3;
+  }
+  .display {
+    padding: 1rem;
+
+    &-active {
+      color: #111;
+    }
   }
 </style>

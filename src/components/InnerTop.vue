@@ -1,6 +1,6 @@
 <template>
   <div class="inner-top">
-    <ul v-if="team" class="team-holder">
+    <ul v-if="team.length" class="team-holder">
       <li
         class="card"
         v-for="(mon, index) in team"
@@ -49,6 +49,13 @@
           </ul>
       </li>
     </ul>
+    <div v-else class="welcome" >
+      <img id="letter1" src="../assets/unowns/unown-h.png" alt="unown-h">
+      <img id="letter2" src="../assets/unowns/unown-e.png" alt="unown-e">
+      <img id="letter3" src="../assets/unowns/unown-l.png" alt="unown-l">
+      <img id="letter4" src="../assets/unowns/unown-l.png" alt="unown-l">
+      <img id="letter5" src="../assets/unowns/unown-o.png" alt="unown-o">
+    </div>
   </div>
 </template>
 
@@ -96,6 +103,13 @@ export default {
     height: 100%;
     align-items: center;
   }
+  /* -- WELCOME PLACEHOLDER --*/
+  .welcome {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
   /* -- CARD DISPLAY -- */
   .card {
     flex-basis: calc(100% / 6);
@@ -120,6 +134,7 @@ export default {
       overflow: visible;
     }
   }
+  /* -- CARD IMAGE CONTAINER */
   .cardfront-images {
     display: flex;
     justify-content: center;
@@ -127,23 +142,45 @@ export default {
     background-size: contain;
     background-repeat: no-repeat;
   }
+  /* -- CARD ITEM ELEMENT --*/
   .cardfront-item {
     align-self: flex-end;
     margin-left: -30px;
     margin-bottom: 10px;
   }
+  /* -- CARD TEXT CONTAINER-- */
   .cardfront-text {
     color: #444;
   }
+  /* -- CARD EV DISPLAY ELEMENT -- */
   .cardfront-evs {
     display: inline-block;
     margin-left: 4px;
   }
-  .move:hover {
-    color: #222
-  }
+  /* -- CARD MOVE DISPLAY -- */
   .cardfront-moves {
     text-shadow: 0px 0px 1px #000;
+  }
+  /* -- EFFECTS -- */
+  .move:hover {
+    color: #222;
+    cursor: pointer;
+  }
+  /* -- WELCOME ELEMENTS -- */
+  #letter1 {
+    animation: bounce 4s ease-in-out infinite;
+  }
+  #letter2 {
+    animation: bounce 6s ease-in-out infinite;
+  }
+  #letter3 {
+    animation: bounce 8s ease-in-out infinite;
+  }
+  #letter4 {
+    animation: bounce 5s ease-in-out infinite;
+  }
+  #letter5 {
+    animation: bounce 7s ease-in-out infinite;
   }
   /* -- COLOR VARIABLES FOR MOVES -- */ //should probably convert to variables later
   .bug {
@@ -192,12 +229,25 @@ export default {
     color: #a144bd;
   }
   .rock {
-    color: #826e63;
+    color: #5e4e46;
   }
   .steel {
     color: #969696;
   }
   .water {
     color: #3030ff;
+  }
+  /* -- KEYFRAMES -- */
+  /* Bounce Animation for unowns */
+  @keyframes bounce {
+    0% {
+      transform: translateY(5px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+    100% {
+      transform: translateY(5px);
+    }
   }
 </style>

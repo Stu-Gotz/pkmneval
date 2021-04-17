@@ -15,7 +15,7 @@
     <div class="textarea-container">
       <textarea
       class="pastearea"
-      placeholder="Paste a team to get started. Include '=== [gen8lc] ===' style at the top for your tier."
+      placeholder="Include the generation and tier at the top of your team in the following format: ===[gen8ou]=== My Team"
       v-model="textInput"></textarea>
 
     </div>
